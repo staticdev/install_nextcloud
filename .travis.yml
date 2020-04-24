@@ -3,6 +3,10 @@ language: python
 python: "2.7"
 os: linux
 dist: bionic
+services:	
+  - mysql
+  - postgresql
+  - redis
 matrix:
   include:
     # latest ansible + code coverage
