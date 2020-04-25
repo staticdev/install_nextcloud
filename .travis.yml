@@ -10,8 +10,8 @@ services:
 matrix:
   include:
     # latest ansible + code coverage
-    - env: ansible_version="<2.8" NC_DB=mysql NC_WEB=apache2
-    - env: ansible_version="<2.8" NC_DB=mysql NC_WEB=nginx
+    - env: ansible_version="" NC_DB=mysql NC_WEB=apache2
+    - env: ansible_version="" NC_DB=mysql NC_WEB=nginx
     - env: ansible_version="" NC_DB=pgsql NC_WEB=apache2
     - env: ansible_version="" NC_DB=pgsql NC_WEB=nginx
     # backward compatibility:
