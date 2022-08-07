@@ -16,7 +16,7 @@
 
 - name: "[mySQL] - generate {{ nextcloud_db_backend }} root Password:"
   ansible.builtin.set_fact:
-    nextcloud_mysql_root_pwd: "{{ lookup( 'password', 'nextcloud_instances/'+ nextcloud_instance_name +'/mysql_root.pwd' ) }}"
+    nextcloud_mysql_root_pwd: "{{ lookup('ansible.builtin.password', 'nextcloud_instances/'+ nextcloud_instance_name +'/mysql_root.pwd length=64') }}"
   when: nextcloud_mysql_root_pwd is not defined
 
 - name: "[mySQL] - save {{ nextcloud_db_backend }} root password in config file"
@@ -69,7 +69,7 @@
 
 - name: "[mySQL] - Generate database user Password."
   ansible.builtin.set_fact:
-    nextcloud_db_pwd: "{{ lookup( 'password', 'nextcloud_instances/'+ nextcloud_instance_name +'/db_admin.pwd' ) }}"
+    nextcloud_db_pwd: "{{ lookup('ansible.builtin.password', 'nextcloud_instances/'+ nextcloud_instance_name +'/db_admin.pwd length=64') }}"
   when: nextcloud_db_pwd is not defined
 
 - name: "[mySQL] - Add Database {{ nextcloud_db_name }}."

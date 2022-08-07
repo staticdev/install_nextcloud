@@ -11,7 +11,7 @@
 
 - name: "[PostgreSQL] - generate nextcloud role password."
   ansible.builtin.set_fact:
-    nextcloud_db_pwd: "{{ lookup( 'password', 'nextcloud_instances/'+ nextcloud_instance_name +'/pgsql_nc.pwd' ) }}"
+    nextcloud_db_pwd: "{{ lookup('ansible.builtin.password', 'nextcloud_instances/'+ nextcloud_instance_name +'/pgsql_nc.pwd length=64') }}"
   when: nextcloud_db_pwd is not defined
 
 - name: "[PostgreSQL] - nextcloud role is created."
